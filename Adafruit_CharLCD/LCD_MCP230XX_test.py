@@ -12,7 +12,10 @@ gpio_count = 8  # Number of GPIOs exposed by the MCP230xx chip, should be 8 or 1
 mcp = MCP230XX_GPIO(bus, address, gpio_count)
 
 # Create LCD, passing in MCP GPIO adapter.
-lcd = Adafruit_CharLCD(pin_rs=1, pin_e=2, pins_db=[3,4,5,6], GPIO=mcp)
+lcd = Adafruit_CharLCD(pin_rs=1, pin_e=2, pins_db=[3,4,5,6], GPIO=mcp, pin_b=7)
+
+# Turn LCD backlight on or off. 
+# lcd.backlight(True)
 
 lcd.clear()
 lcd.message("  Adafruit 16x2\n  Standard LCD")
